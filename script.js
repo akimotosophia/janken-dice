@@ -170,6 +170,7 @@ function gacha() {
 
     alert(`${acquiredFace.name}を獲得しました!\n${acquiredFace.effect}`);
     updateUI();
+    updateInventory();
 }
 
 // カスタマイズUI更新
