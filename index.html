@@ -3,107 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>じゃんけんダイス - 放置×ガチャゲーム</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>目次</title>
 </head>
 <body>
-    <!-- パーティクルエフェクト用Canvas -->
-    <canvas id="particles-canvas"></canvas>
-
-    <div class="game-container">
-        <!-- ヘッダー -->
-        <header class="game-header">
-            <h1>じゃんけんダイス</h1>
-            <div class="points-display">
-                <span class="points-label">ポイント:</span>
-                <span class="points-value" id="points">0</span>
-            </div>
-        </header>
-
-        <!-- メインバトルエリア -->
-        <div class="battle-area">
-            <!-- プレイヤーサイド -->
-            <div class="player-side">
-                <h2>あなた</h2>
-                <div class="dice-container">
-                    <div class="dice" id="player-dice">
-                        <div class="dice-result" id="player-result">?</div>
-                    </div>
-                </div>
-                <div class="dice-faces" id="player-faces">
-                    <!-- サイコロの6面構成 -->
-                </div>
-            </div>
-
-            <!-- VS表示 -->
-            <div class="vs-display">
-                <div class="vs-text">VS</div>
-                <button class="battle-btn" id="battle-btn">
-                    <span class="btn-icon">🎲</span>
-                    <span>バトル!</span>
-                </button>
-            </div>
-
-            <!-- 相手サイド -->
-            <div class="enemy-side">
-                <h2>相手</h2>
-                <div class="dice-container">
-                    <div class="dice" id="enemy-dice">
-                        <div class="dice-result" id="enemy-result">?</div>
-                    </div>
-                </div>
-                <div class="dice-faces" id="enemy-faces">
-                    <!-- サイコロの6面構成 -->
-                </div>
-            </div>
-        </div>
-
-        <!-- バトル結果表示 -->
-        <div class="battle-result" id="battle-result"></div>
-
-        <!-- サイコロカスタマイズエリア -->
-        <div class="customize-area">
-            <h3>サイコロのカスタマイズ</h3>
-            <div class="customize-grid" id="customize-grid">
-                <!-- 6つの面のスロット -->
-                <div class="face-slot" data-index="0"></div>
-                <div class="face-slot" data-index="1"></div>
-                <div class="face-slot" data-index="2"></div>
-                <div class="face-slot" data-index="3"></div>
-                <div class="face-slot" data-index="4"></div>
-                <div class="face-slot" data-index="5"></div>
-            </div>
-            <button class="save-btn" id="save-dice-btn">変更を保存</button>
-        </div>
-
-        <!-- 所持している面のインベントリ -->
-        <div class="inventory-area">
-            <h3>所持している面</h3>
-            <div class="inventory-grid" id="inventory-grid">
-                <!-- ガチャで獲得した面が表示される -->
-            </div>
-        </div>
-
-        <!-- ガチャエリア -->
-        <div class="gacha-area">
-            <h3>ガチャ</h3>
-            <p class="gacha-cost">コスト: <span class="cost-value">100</span> ポイント</p>
-            <button class="gacha-btn" id="gacha-btn">
-                <span class="btn-icon">✨</span>
-                <span>ガチャを回す!</span>
-            </button>
-        </div>
-
-        <!-- 放置エリア -->
-        <div class="idle-area">
-            <h3>放置ボーナス</h3>
-            <p class="idle-info">自動で<span id="idle-rate">1</span>ポイント/秒を獲得中...</p>
-            <div class="idle-progress">
-                <div class="idle-bar" id="idle-bar"></div>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <h1>ゲームの目次</h1>
+    <ul>
+        <li><a href="./games/janken-dice.html">じゃんけんゲーム</a></li>
+    </ul>
 </body>
 </html>
