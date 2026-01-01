@@ -3,107 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>じゃんけんダイス - 放置×ガチャゲーム</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>ゲームハブ - 放置×ガチャゲーム集</title>
+    <link rel="stylesheet" href="common.css">
 </head>
 <body>
-    <!-- パーティクルエフェクト用Canvas -->
-    <canvas id="particles-canvas"></canvas>
+    <!-- 背景Canvas -->
+    <canvas id="bg-canvas"></canvas>
 
-    <div class="game-container">
+    <div class="hub-container">
         <!-- ヘッダー -->
-        <header class="game-header">
-            <h1>じゃんけんダイス</h1>
-            <div class="points-display">
-                <span class="points-label">ポイント:</span>
-                <span class="points-value" id="points">0</span>
-            </div>
+        <header class="hub-header">
+            <h1>🎮 ゲームハブ</h1>
+            <p class="subtitle">放置×ガチャゲーム集</p>
         </header>
 
-        <!-- メインバトルエリア -->
-        <div class="battle-area">
-            <!-- プレイヤーサイド -->
-            <div class="player-side">
-                <h2>あなた</h2>
-                <div class="dice-container">
-                    <div class="dice" id="player-dice">
-                        <div class="dice-result" id="player-result">?</div>
+        <!-- ゲーム一覧 -->
+        <main class="games-grid">
+            <!-- じゃんけんダイス -->
+            <div class="game-card">
+                <div class="card-header">
+                    <span class="game-icon">🎲</span>
+                    <h2>じゃんけんダイス</h2>
+                </div>
+                <div class="card-body">
+                    <p class="game-description">
+                        サイコロの6面にグー・チョキ・パーを配置して戦う戦略的ガチャゲーム。
+                        特殊な面を集めて、最強のダイスを作り上げよう!
+                    </p>
+                    <div class="game-tags">
+                        <span class="tag">戦略</span>
+                        <span class="tag">放置</span>
+                        <span class="tag">ガチャ</span>
                     </div>
                 </div>
-                <div class="dice-faces" id="player-faces">
-                    <!-- サイコロの6面構成 -->
+                <div class="card-footer">
+                    <a href="games/janken-dice/index.html" class="play-btn">
+                        <span>プレイする</span>
+                        <span class="arrow">→</span>
+                    </a>
                 </div>
             </div>
 
-            <!-- VS表示 -->
-            <div class="vs-display">
-                <div class="vs-text">VS</div>
-                <button class="battle-btn" id="battle-btn">
-                    <span class="btn-icon">🎲</span>
-                    <span>バトル!</span>
-                </button>
-            </div>
-
-            <!-- 相手サイド -->
-            <div class="enemy-side">
-                <h2>相手</h2>
-                <div class="dice-container">
-                    <div class="dice" id="enemy-dice">
-                        <div class="dice-result" id="enemy-result">?</div>
+            <!-- 今後追加予定のゲーム用プレースホルダー -->
+            <div class="game-card coming-soon">
+                <div class="card-header">
+                    <span class="game-icon">🎰</span>
+                    <h2>Coming Soon...</h2>
+                </div>
+                <div class="card-body">
+                    <p class="game-description">
+                        新しいゲームを開発中です。お楽しみに!
+                    </p>
+                    <div class="game-tags">
+                        <span class="tag">準備中</span>
                     </div>
                 </div>
-                <div class="dice-faces" id="enemy-faces">
-                    <!-- サイコロの6面構成 -->
+                <div class="card-footer">
+                    <button class="play-btn disabled" disabled>
+                        <span>開発中</span>
+                    </button>
                 </div>
             </div>
-        </div>
 
-        <!-- バトル結果表示 -->
-        <div class="battle-result" id="battle-result"></div>
-
-        <!-- サイコロカスタマイズエリア -->
-        <div class="customize-area">
-            <h3>サイコロのカスタマイズ</h3>
-            <div class="customize-grid" id="customize-grid">
-                <!-- 6つの面のスロット -->
-                <div class="face-slot" data-index="0"></div>
-                <div class="face-slot" data-index="1"></div>
-                <div class="face-slot" data-index="2"></div>
-                <div class="face-slot" data-index="3"></div>
-                <div class="face-slot" data-index="4"></div>
-                <div class="face-slot" data-index="5"></div>
+            <div class="game-card coming-soon">
+                <div class="card-header">
+                    <span class="game-icon">🃏</span>
+                    <h2>Coming Soon...</h2>
+                </div>
+                <div class="card-body">
+                    <p class="game-description">
+                        新しいゲームを開発中です。お楽しみに!
+                    </p>
+                    <div class="game-tags">
+                        <span class="tag">準備中</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="play-btn disabled" disabled>
+                        <span>開発中</span>
+                    </button>
+                </div>
             </div>
-            <button class="save-btn" id="save-dice-btn">変更を保存</button>
-        </div>
+        </main>
 
-        <!-- 所持している面のインベントリ -->
-        <div class="inventory-area">
-            <h3>所持している面</h3>
-            <div class="inventory-grid" id="inventory-grid">
-                <!-- ガチャで獲得した面が表示される -->
-            </div>
-        </div>
-
-        <!-- ガチャエリア -->
-        <div class="gacha-area">
-            <h3>ガチャ</h3>
-            <p class="gacha-cost">コスト: <span class="cost-value">100</span> ポイント</p>
-            <button class="gacha-btn" id="gacha-btn">
-                <span class="btn-icon">✨</span>
-                <span>ガチャを回す!</span>
-            </button>
-        </div>
-
-        <!-- 放置エリア -->
-        <div class="idle-area">
-            <h3>放置ボーナス</h3>
-            <p class="idle-info">自動で<span id="idle-rate">1</span>ポイント/秒を獲得中...</p>
-            <div class="idle-progress">
-                <div class="idle-bar" id="idle-bar"></div>
-            </div>
-        </div>
+        <!-- フッター -->
+        <footer class="hub-footer">
+            <p>&copy; 2025 Game Hub - All games are free to play!</p>
+        </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="common.js"></script>
 </body>
 </html>
